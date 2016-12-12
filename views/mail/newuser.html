@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="panel mb25">
+      <div class="panel-heading border"> 添加用户 </div>
+      <div class="panel-body">
+          <div class="row no-margin">
+              <div class="col-lg-12">
+                  <form action="/chapter/adduser" method="post" class="form-horizontal bordered-group" role="form" enctype="multipart/form-data">
+                      <input type="text" name="pid" hidden value="{{.Pid}}">
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">收件人：</label>
+                          <div class="col-sm-10">
+                              <textarea style="height:600px;" name="person" class="form-control" rows="5"></textarea>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn-info pull-right">提交</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>

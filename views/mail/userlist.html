@@ -1,0 +1,29 @@
+<style media="screen">
+  button{
+    margin-top: 5px;
+  }
+</style>
+    {{range $index, $elem := .List}}
+        <tr>
+          {{if eq $elem.Status 1}}
+            <td><button id="{{$elem.Id}}" type="button" class="btn btn-success btn-sm btn-icon mr5"> <i class="fa fa-check"></i> <span>{{$elem.Email}}</span> </button></td>
+          {{else}}
+            <td><button id="{{$elem.Id}}" type="button" class="btn btn-danger btn-sm btn-icon mr5"> <i class="fa fa-exclamation-triangle"></i> <span>{{$elem.Email}}</span> </button></td>
+          {{end}}
+        </tr>
+    {{end}}
+
+
+
+  <script>
+    $(function() {
+      var ws = new WebSocket("ws://localhost:8081/echo");
+      ws.onmessage = function(e) {
+        var cl = "btn btn-success btn-sm btn-icon mr5";
+        var yes = "fa fa-check";
+        console.log(e.data)
+        $('#'+e.data).attr('class', cl);
+        $('#'+e.data+' i').attr('class', yes);
+      };
+    });
+  </script>

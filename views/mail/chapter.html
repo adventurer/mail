@@ -1,0 +1,55 @@
+
+<!-- <script type="text/javascript" src="http://cn.vuejs.org/js/vue.js"></script> -->
+<div class="row">
+  <div class="panel mb25">
+      <div class="panel-heading">邮件主题</div>
+      <div class="panel-body">
+          <table class="table mb0">
+              <thead>
+                  <tr>
+                      <th class="col-md-1">序号
+                      </th>
+                      <th class="col-md-1">主题
+                      </th>
+                      <th class="col-md-1">内容
+                      </th>
+                      <th class="col-md-1">状态
+                      </th>
+                      <th class="col-md-1">用户
+                      </th>
+                      <th class="col-md-1">进度
+                      </th>
+                      <th class="col-md-2">操作
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                {{range $index, $elem := .List}}
+                    <tr>
+                      <td>{{$elem.Id}}</td>
+                      <td>{{$elem.Title}}</td>
+                      <td><a href="/mail/review?id={{$elem.Id}}" target="_blank">预览</a>|<a href="/mail/edit?id={{$elem.Id}}" target="_blank">修改</a></td>
+                      <td>{{$elem.Status}}</td>
+                      <td><a href="/mail/user?id={{$elem.Id}}">查看</a></td>
+                      <td>空</td>
+                      <td><a href="/chapter/newuser?pid={{$elem.Id}}">添加用户</a></td>
+                    </tr>
+                {{end}}
+
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+<div class="row pull-right">
+    <a href="/mail/new">添加邮件</a>
+</div>
+
+
+
+
+
+
+</script>
