@@ -41,7 +41,7 @@ func GetData() {
 
 func send(v models.Email) {
 	serv := new(service.Service)
-	issend := serv.SendToMail("mail.guodu.com.hk", "Kuaiex@guodu.com.hk", "1550520500@qq.com", "Kuaiex@2556", v.Title, v.Content, "html")
+	issend := serv.SendToMail("smtp.qq.com", "1550250500@qq.com", "1550520500@qq.com", "w112215334", v.Title, v.Content, "html")
 	list := new(models.List)
 
 	if issend {
